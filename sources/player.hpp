@@ -10,7 +10,7 @@ class Player{
     Player(string name){
         this->name = name;
         this->cardsTaken = 0;
-        this->stackSize = 0;
+        this->stackSize = 26;
     }
     Player(){
         this->name = "NoName";

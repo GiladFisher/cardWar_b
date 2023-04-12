@@ -22,19 +22,15 @@ int main() {
    Player p2("Bob");
 
    Game game(p1,p2); 
-  //  cout << p2.cards.size() << endl; //prints the amount of cards left. should be 26
-   int cnt = 1;
+   cout << p2.cards.size() << endl; //prints the amount of cards left. should be 26
   //  while(p2.cards.size() != 0){
   //     cout << cnt++ << " ";
   //     cout << p2.cards.top() << endl;
   //     p2.cards.pop();
   //  }
-  game.playTurn(); // plays one turn
-  game.playTurn(); // plays one turn
    for (int i=0;i<5;i++) {
     game.playTurn();
    }
-  /*
    game.printLastTurn(); // print the last turn stats. For example:
                                                     // Alice played Queen of Hearts Bob played 5 of Spades. Alice wins.
                                                     // Alice played 6 of Hearts Bob played 6 of Spades. Draw. Alice played 10 of Clubs Bob played 10 of Diamonds. draw. Alice played Jack of Clubs Bob played King of Diamonds. Bob wins.
@@ -44,5 +40,5 @@ int main() {
    game.printWiner(); // prints the name of the winning player
    game.printLog(); // prints all the turns played one line per turn (same format as game.printLastTurn())
    game.printStats();// for each player prints basic statistics: win rate, cards won, <other stats you want to print>. Also print the draw rate and amount of draws that happand. (draw within a draw counts as 2 draws. )
-   */
+   
 }
