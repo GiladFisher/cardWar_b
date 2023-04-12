@@ -7,10 +7,9 @@ class Player{
     int cardsTaken;
     int stackSize;
     stack<int> cards;
-    Player(string name){
-        this->name = name;
+    Player(string name): name(std::move(name)){
         this->cardsTaken = 0;
-        this->stackSize = 26;
+        this->stackSize = 0;
     }
     Player(){
         this->name = "NoName";
