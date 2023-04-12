@@ -22,16 +22,18 @@ int main() {
    Player p2("Bob");
 
    Game game(p1,p2); 
-   cout << p1.cards.size() << endl; //prints the amount of cards left. should be 26
+  //  cout << p2.cards.size() << endl; //prints the amount of cards left. should be 26
    int cnt = 1;
-   while(p1.cards.size() != 0){
-      cout << cnt++ << " ";
-      cout << p1.cards.top() << endl;
-      p1.cards.pop();
-   }
-  //  for (int i=0;i<5;i++) {
-    // game.playTurn();
+  //  while(p2.cards.size() != 0){
+  //     cout << cnt++ << " ";
+  //     cout << p2.cards.top() << endl;
+  //     p2.cards.pop();
   //  }
+  game.playTurn(); // plays one turn
+  game.playTurn(); // plays one turn
+   for (int i=0;i<5;i++) {
+    game.playTurn();
+   }
   /*
    game.printLastTurn(); // print the last turn stats. For example:
                                                     // Alice played Queen of Hearts Bob played 5 of Spades. Alice wins.

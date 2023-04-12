@@ -4,20 +4,43 @@
 
 using namespace ariel;
 void Game::playTurn(){
-    int c1 = this->p1.cards.top();
+    int c1 = 0 + p1.cards.top();
+    cout << p1.name << " played " << c1 << " ";
     int c2 = this->p2.cards.top();
+    cout << this->p2.name << " played " << c2 << " of Spades ";
     this->p1.cards.pop();
     this->p2.cards.pop();
     if (c1 > c2){
-        // this->p1.cardesTaken++;
+        p1.cardsTaken++;
+        cout << p1.name << " wins" << endl;
     }
     else if (c1 < c2){
-        // this->p2.takeCard();
+        p2.cardsTaken++;
+        cout << p2.name << " wins" << endl;
     }
     else{
-        // tie breaker
-    }
-   
+            // tie breaker
+            int to_add = 1;
+            while (c1 == c2){
+                if (p1.cards.size() <= 1 || p2.cards.size() <= 1){
+                    break;
+                }
+                p1.cards.pop();
+                p2.cards.pop();
+                c1 = this->p1.cards.top();
+                c2 = this->p2.cards.top();
+                p1.cards.pop();
+                p2.cards.pop();
+                to_add += 2;
+                if (c1 > c2){
+                    p1.cardsTaken += to_add;
+                }
+                else if (c1 < c2){
+                    p2.cardsTaken += to_add;
+                }
+            }
+
+        }   
 }
 
 void Game::playAll(){
@@ -53,11 +76,8 @@ void Game::shuffle(Player &p1, Player &p2){
         else{
             p1.cards.push(val);
         }
-        
         cnt++;
         val = 0;
     }
-    cout << p1.cards.size() << endl;
-    cout << p2.cards.size() << endl;
 }
 
